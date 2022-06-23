@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace MyNewProject.Assignment3
 {
-    class subengine
+    class SubEngine
     {
         string subenginetype;
-        public  subengine (string subenginetype)
+        public  SubEngine (string subenginetype)
         {
             this.subenginetype = subenginetype;
         }
-        public void showsub()
+        public void ShowSub()
         {
             Console.WriteLine(subenginetype);
         }
@@ -22,8 +22,8 @@ namespace MyNewProject.Assignment3
     {
         int engineid;
         string lastenginecleandate;
-        subengine sub;
-        public Engine(int engineid, string lastenginecleandate, subengine sub)
+        
+        public Engine(int engineid, string lastenginecleandate)
         {
             this.engineid = engineid;
             this.lastenginecleandate = lastenginecleandate;
@@ -32,7 +32,7 @@ namespace MyNewProject.Assignment3
         public void ShowEngine()
         {
             Console.WriteLine(engineid+ " "+lastenginecleandate);
-            sub.showsub();
+            
         }
     }
     class Gear
@@ -42,9 +42,9 @@ namespace MyNewProject.Assignment3
         {
             this.type = type;
         }   
-        public void Showgear()
+        public void ShowGear()
         {
-            Console.WriteLine(type);
+            Console.WriteLine(type+ " ");
           
         }
     }
@@ -53,25 +53,28 @@ namespace MyNewProject.Assignment3
     {
         int carid;
         string carcolor;
-        string engine;
-        string gear;
-        public Car(int carid, string carcolor, string engine, string gear)
+        Engine engine;
+        SubEngine sub;
+        Gear gear;
+        public Car(int carid, string carcolor, Engine engine, SubEngine sub, Gear gear)
         {
             this.carid = carid;
             this.carcolor = carcolor;
             this.engine = engine;
+            this.sub = sub;
             this.gear = gear;
         }
         public void Showcar()
         {
             Console.WriteLine(carid+" "+carcolor);
-            Engine.ShowEngine();
-            Gear.Showgear();
+            engine.ShowEngine();
+            gear.ShowGear();
+            sub.ShowSub();
 
         }
         static void Main(string[] args)
         {
-            Car c = new Car(123, "white", newengine(111, "06/30/22", new subengine("Petrol")), new gear("Auto"));
+            Car c = new Car(123, "white" , new Engine (111, "06/30/22"), new SubEngine( "Petrol"), new Gear("Auto"));
             c.Showcar();
            
 

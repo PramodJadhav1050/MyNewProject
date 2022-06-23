@@ -10,12 +10,12 @@ namespace MyNewProject.Assignment3
     {
         static void Main(string[] args)
         {
-            int var[] = new int[10];
+            int[] var = new int[10];
             for(int i=0;i<=0;i++)
             {
                 var[i] = 1;
                 Console.WriteLine(var[i]+ " ");
-                i++ +;
+                i++;
             }
         }
     }
